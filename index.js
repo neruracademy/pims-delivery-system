@@ -2,13 +2,14 @@ const express = require('express');
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // ✅ ADD THIS
 
 // Test route
 app.get('/', (req, res) => {
   res.send('Nerur Academy Webhook is LIVE 🚀');
 });
 
-// Gumroad webhook endpoint
+// Gumroad webhook
 app.post('/webhook', (req, res) => {
   console.log('Webhook received:', req.body);
 
